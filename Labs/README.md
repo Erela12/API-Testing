@@ -32,4 +32,10 @@
 #### 4.Lab
 * The lab askes as to login using credentials (wiener:peter), find the exposed API and remove or delete carlos
 * To solve this lab we need to know what API documentation is and how to discover API documentation
-* 
+* I started by logging in  into the account by using the credential i was given and then it gave a blank space to update wiener's email i updated to test@gmail.com
+* As i said earlier to solve this lab we need to have a great knowledge about API and how we can get the API file the method i used was add /api at the end of the URL  like this
+  https://0ad40006036a92f680d4e4a0006900fe.web-security-academy.net/api
+* Now i got the REST API and The documented REST API defines three operations for managing user resources on the lab we were asked to DELETE Carlos
+* we hit the delete operation it will ask us to submit a username : string* we were asked to delete Carlos so we enter Carlos's name and we send a request and Carlos is deleted 
+
+
