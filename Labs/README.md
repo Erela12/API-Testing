@@ -78,6 +78,37 @@
  * What i did was first i logged into my account using my credentials and updated the email to my test@gmail.com
  * On the home page we got the **Lightweight l33t Leather Jacket** we click on it add it our cart
  * We go to the cart page and we place our order when we do that it will tell us the we cant purchase it but we want it so bad so what we will do is that make the price 0 so we can afford it
- * We go to the jackets page and we inspect the page we got network change the GET method to request and add application/json on the header and on body we can
+ * We go to the jackets page and we inspect the page we got network change the GET method to POST request and add application/json on the header and on body we do {"price":"0.00"}
+ * Click the blue Send button at the bottom. Navigate to or refresh the Cart page in the browser to verify the jacket was added at $0.00.
+
+## Lab 3: Exploiting a mass assignment vulnerability
+
+### Introduction
+* This lab explains about
+  1. Using Intruder to find hidden endpoints
+  2. Finding hidden parameters
+  3. Mass assignment vulnerabilities , Identifying hidden parameters , Testing mass assignment                 vulnerabilities
+* Has a practical Lab
+
+### What i learned 
+####  1. Using Intruder to find hidden endpoints
+*  When developer build API they usually follow predictable RESTful structure
+*  If we find a working endpoint there is a high probability we might find other endpoint
+*  Another tip is when looking for hidden endpoint its better to use wordlists based on common API naming
+  
+####  2. Finding hidden parameters
+* Another way to change the application behavior might be when we are doing API recon we might find undocumented parameters the the API takes we can use them
+* Burp tools that's used in identifying hidden parameter
+   1. Burp Intruder: : Automatically tests many different parameter names in a GET query string
+   2. Param Miner (Burp Extension): A tool for high-speed discovery of hidden parameters.
+   3. Content Discovery: Finding hidden website resources and endpoints that aren't directly linked.
+      
+#### 3. Mass assignment vulnerabilities , Identifying hidden parameters , Testing mass assignment                 vulnerabilities
+* Mass assignment (also called auto-binding) happens when an application automatically takes parameters from a request and puts them into an internal object.
+* It might even make the application to use hidden parameter that the developer never intended the user to use
+* We might often find hidden parameters by looking carefully at the the data
+* To test whether you can modify the enumerated isAdmin parameter value, add it to the PATCH request
+
+
 
 
