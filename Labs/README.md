@@ -109,6 +109,9 @@
 * We might often find hidden parameters by looking carefully at the the data
 * To test whether you can modify the enumerated isAdmin parameter value, add it to the PATCH request
 
+#### 4 Lab
+
+
 
 
 
