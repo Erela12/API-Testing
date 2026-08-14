@@ -56,6 +56,28 @@
 
 #### 2.Interacting with API endpoints
 * After identifying the API end points we can interact with them using Burp Repeater and Burp Intruder
-* 
+* When we interact with them using Burp it will enable us to observe the API behavior
+* Lets say we are interacting with API endpoint we will got error messages and other responses we should monitor them closely because they might give us clue or insight on how to construct a valid HTTP request.
+
+#### 3.Identifying supported HTTP methods and Identifying supported content types
+* The HTTP method specifies the action to be performed on the resource like
+    1. GET : retrieve / get data from the resource
+          example : GET /api/tasks
+    2. PATCH : apply change to a resource
+          example : POST /api/tasks
+    3. OPTIONS : it askes what method is allowed example finding out if GET, POST, PATCH etc are                            supported
+ * It would be exhausting to cycle every single method so we could use the build-in _HTTP verbs_ in Burp     intruder
+   > **One thing to note when testing HTTP methods is that we need to test them on resource that has low         priority because they might destroy the whole record for example DELETE /users/1 might actually           delete user number 1**
+* Usually API endpoints expect data in a specific format so when we change the methods they might behave differently so changing the content type might enable us
+    1. Trigger errors that might give us useful information
+    2. we might find our way around the security protection
+    3. depending on the format the program might treat two things differently like the developer might           security JSON and forgot to do the same for XML
+ 
+ #### 4.Lab
+ * To solve this lab we need to exploit a hidden API endpoints to buy **Lightweight l33t Leather Jacket**    we can login as we did on the first lab
+ * What i did was first i logged into my account using my credentials and updated the email to my test@gmail.com
+ * On the home page we got the **Lightweight l33t Leather Jacket** we click on it add it our cart
+ * We go to the cart page and we place our order when we do that it will tell us the we cant purchase it but we want it so bad so what we will do is that make the price 0 so we can afford it
+ * We go to the jackets page and we inspect the page we got network change the GET method to request and add application/json on the header and on body we can
 
 
