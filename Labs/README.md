@@ -36,6 +36,26 @@
 * As i said earlier to solve this lab we need to have a great knowledge about API and how we can get the API file the method i used was add /api at the end of the URL  like this
   https://0ad40006036a92f680d4e4a0006900fe.web-security-academy.net/api
 * Now i got the REST API and The documented REST API defines three operations for managing user resources on the lab we were asked to DELETE Carlos
-* we hit the delete operation it will ask us to submit a username : string* we were asked to delete Carlos so we enter Carlos's name and we send a request and Carlos is deleted 
+* we hit the delete operation it will ask us to submit a username : string* we were asked to delete Carlos so we enter Carlos's name and we send a request and Carlos is deleted
+
+## Lab 2: Finding and exploiting an unused API endpoint
+
+### Introduction
+* This lab explains about
+  1.Identifying API endpoints
+  2.Interacting with API endpoints
+  3.Identifying supported HTTP methods and Identifying supported content types
+* Has a practical Lab
+
+### What i learned 
+
+#### 1.Identifying API endpoints
+* Even if we have API documentation we can also gather information by using the application that uses the API we do this because sometimes documents might be outdated or in accurate
+* We can also use Burp Scanner to sniff then manually investigate interesting attack surface using the Burp's browser
+* While browsing we can look for patterns like /api/ and also one thing that might help us even trigger API endpoints is JavaScript file we can study the file in two ways the first one is just manually reviewing it and the other one is using JS Link Finder BApp
+
+#### 2.Interacting with API endpoints
+* After identifying the API end points we can interact with them using Burp Repeater and Burp Intruder
+* 
 
 
