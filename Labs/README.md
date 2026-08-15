@@ -88,6 +88,7 @@
   1. Using Intruder to find hidden endpoints
   2. Finding hidden parameters
   3. Mass assignment vulnerabilities , Identifying hidden parameters , Testing mass assignment                 vulnerabilities
+  4. Preventing vulnerability in APIs
 * Has a practical Lab
 
 ### What i learned 
@@ -109,7 +110,46 @@
 * We might often find hidden parameters by looking carefully at the the data
 * To test whether you can modify the enumerated isAdmin parameter value, add it to the PATCH request
 
+#### 4. Preventing vulnerability in APIs
+* when we design API's we need to make it secured by doing the following
+  1. we can make our API documentation private
+  2. keep the API documentation up to date
+  3. on the http method do an allow list
+  4. don't make the errors to reveal to much information
+  5. secure everything equally especially on every version of the API 
+
 #### 4 Lab
+* To solve the lab we need to  find and exploit a mass assignment vulnerability to buy a Lightweight l33t Leather Jacket
+* We can login using the last credential we used
+* First thing we do is find the hidden parameter to get that we look at the response form which is GET /api/checkout
+* On the response we saw a strange code which says 
+```
+"chosen_discount": {
+    "percentage": 0
+}
+```
+* This code is strange because we don't normally control chosen_discount this gave us an idea even though it wont let us edit it on the front we might still find a way to modify it
+* What we do next is find the request that create the order in the HTTP history POST /api/checkout earlier we say the chosen_discount might be modified so what if we add it here on , also in here we find this code
+ ```
+  {
+  "chosen_products": [
+    {
+      "product_id": "1",
+      "quantity": 1
+    }
+  ]
+}
+ ```
+* In the codes the main vulnerability is it accept a filed even though the user shouldn't have been allowed to manipulate it , to modify we just add and send the request
+```
+  "chosen_discount": {
+    "percentage": 100
+}
+  ```
+* The server response with HTTP/2 201 Created , 201 created mean the server successfully created something and we got the successful response which is /cart/order_confirmation?order-confirmed=true
+* Now when we refresh the lab we got the message that we finished the lab
+  
+
 
 
 
