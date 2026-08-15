@@ -33,10 +33,14 @@
 * The lab askes as to login using credentials (wiener:peter), find the exposed API and remove or delete carlos
 * To solve this lab we need to know what API documentation is and how to discover API documentation
 * I started by logging in  into the account by using the credential i was given and then it gave a blank space to update wiener's email i updated to test@gmail.com
+    <img src="images/lab-1-login.jpg" width="350">
+   <img src="images/lab1-emailupdating.jpg" width="350">
 * As i said earlier to solve this lab we need to have a great knowledge about API and how we can get the API file the method i used was add /api at the end of the URL  like this
   https://0ad40006036a92f680d4e4a0006900fe.web-security-academy.net/api
+  <img src="images/lab1-API.jpg" width="350">
 * Now i got the REST API and The documented REST API defines three operations for managing user resources on the lab we were asked to DELETE Carlos
 * we hit the delete operation it will ask us to submit a username : string* we were asked to delete Carlos so we enter Carlos's name and we send a request and Carlos is deleted
+<img src="images/lab1-Delete.jpg" width="350">          <img src="images/lab1-done.jpg" width="350">
 
 ## Lab 2: Finding and exploiting an unused API endpoint
 
@@ -74,12 +78,24 @@
     3. depending on the format the program might treat two things differently like the developer might           security JSON and forgot to do the same for XML
  
  #### 4.Lab
- * To solve this lab we need to exploit a hidden API endpoints to buy **Lightweight l33t Leather Jacket**    we can login as we did on the first lab
+ * To solve this lab we need to exploit a hidden API endpoints to buy **Lightweight l33t Leather Jacket** we can login as we did on the first lab
+   <img src="images/Lab2-interface.jpg" width="350">)
  * What i did was first i logged into my account using my credentials and updated the email to my test@gmail.com
+   <img src="images/Lab2-loginpage.jpg" width="350">
+
+<img src="images/Lab2-update-email.jpg" width="350">
  * On the home page we got the **Lightweight l33t Leather Jacket** we click on it add it our cart
+ 
+  <img src="images/Lab2-jacket.jpg" width="350">
  * We go to the cart page and we place our order when we do that it will tell us the we cant purchase it but we want it so bad so what we will do is that make the price 0 so we can afford it
+ 
+  <img src="images/Lab2-trying-to-purchase.jpg" width="350">
  * We go to the jackets page and we inspect the page we got network change the GET method to POST request and add application/json on the header and on body we do {"price":"0.00"}
+ 
+   <img src="images/Lab2-changing-method.jpg" width="350">
  * Click the blue Send button at the bottom. Navigate to or refresh the Cart page in the browser to verify the jacket was added at $0.00.
+ 
+ <img src="images/Lab2-done.jpg" width="350">
 
 ## Lab 3: Exploiting a mass assignment vulnerability
 
@@ -87,7 +103,7 @@
 * This lab explains about
   1. Using Intruder to find hidden endpoints
   2. Finding hidden parameters
-  3. Mass assignment vulnerabilities , Identifying hidden parameters , Testing mass assignment                 vulnerabilities
+  3. Mass assignment vulnerabilities , Identifying hidden parameters , Testing mass assignment vulnerabilities
   4. Preventing vulnerability in APIs
 * Has a practical Lab
 
@@ -120,16 +136,23 @@
 
 #### 4 Lab
 * To solve the lab we need to  find and exploit a mass assignment vulnerability to buy a Lightweight l33t Leather Jacket
+  <img src="images/Lab3-interface.jpg" width="350">
 * We can login using the last credential we used
+<img src="images/Lab3-login.jpg" width="350">          <img src="images/Lab3-update-email.jpg" width="350">
+
 * First thing we do is find the hidden parameter to get that we look at the response form which is GET /api/checkout
+  <img src="images/Lab3-getMethod.jpg" width="350">
 * On the response we saw a strange code which says 
 ```
 "chosen_discount": {
     "percentage": 0
 }
 ```
+<img src="images/Lab3-get-response.jpg" width="350">
 * This code is strange because we don't normally control chosen_discount this gave us an idea even though it wont let us edit it on the front we might still find a way to modify it
 * What we do next is find the request that create the order in the HTTP history POST /api/checkout earlier we say the chosen_discount might be modified so what if we add it here on , also in here we find this code
+
+ <img src="images/Lab3-postMethod.jpg" width="350">
  ```
   {
   "chosen_products": [
@@ -146,9 +169,10 @@
     "percentage": 100
 }
   ```
+<img src="images/Lab3-post-response.jpg" width="350">
 * The server response with HTTP/2 201 Created , 201 created mean the server successfully created something and we got the successful response which is /cart/order_confirmation?order-confirmed=true
 * Now when we refresh the lab we got the message that we finished the lab
-  
+  <img src="images/Lab3-done.jpg" width="350">
 
 
 
